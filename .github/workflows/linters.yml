@@ -1,0 +1,18 @@
+name: Linters Code Style
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Setup python"
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.11.3"
+      - run: pip install -r requirements-linters.txt
+      - run: flake8 src
+      - run: isort src
+      - run: black src
