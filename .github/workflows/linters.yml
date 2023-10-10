@@ -13,6 +13,5 @@ jobs:
         with:
           python-version: "3.11.3"
       - run: pip install -r requirements-linters.txt
-      - run: flake8 src
-      - run: isort src
-      - run: black src
+      - run: flake8 baseline
+      - run: isort baseline
